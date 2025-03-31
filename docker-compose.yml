@@ -1,0 +1,17 @@
+services:
+  database:
+    image: mysql:8
+    container_name: blog_laravel_12
+    restart: always
+    environment:
+      MYSQL_DATABASE: blog_db
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: laravel
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
