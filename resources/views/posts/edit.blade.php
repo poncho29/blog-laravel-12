@@ -6,8 +6,9 @@
     <div class="max-w-4xl mx-auto px-4">
         <h1 class="mb-4">Formulario para crear post</h1>
 
-        <form action="/posts" method="POST">
+        <form action="/posts/{{ $post->id }}" method="POST">
             @csrf
+            @method('PUT')
 
             {{-- @if ($errors->any())
                 <div>
@@ -27,7 +28,7 @@
                     id="title"
                     type="text"
                     name="title"
-                    value="{{ old('title') }}"
+                    value="{{ $post->title }}"
                 >
             </label>
 
@@ -59,7 +60,7 @@
                     id="category"
                     type="text"
                     name="category"
-                    value="{{ old('category') }}"
+                    value="{{ $post->category }}"
                 >
             </label>
 
@@ -75,7 +76,7 @@
                     id="content"
                     name="content"
                 >
-                    {{ old('content') }}
+                    {{ $post->content }}
                 </textarea>
             </label>
 
@@ -85,9 +86,9 @@
 
             <br><br>
 
-            <button type="submit">Crear post</button>
+            <button type="submit">Actualizar post</button>
             <button type="button">
-                <a href="/posts">Volver</a>
+                <a href="/posts">Cancelar</a>
             </button>
         </form>
     </div>
