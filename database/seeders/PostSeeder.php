@@ -13,12 +13,6 @@ class PostSeeder extends Seeder
      */
     public function run(): void
     {
-        $post = new Post();
-
-        $post->title = 'Post 1';
-        $post->category = 'Categoria 1';
-        $post->content = 'Contenido del post 1';
-        $post->published_at = now();
-        $post->save();
+        Post::factory(100)->create();
     }
 }
