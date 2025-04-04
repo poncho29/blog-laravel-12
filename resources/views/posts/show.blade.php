@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="container">
-        <a href="/posts">Volver</a>
+        <a href={{ route('posts.index') }}>Volver</a>
 
         <h1>{{ $post->title }}</h1>
 
@@ -14,9 +14,9 @@
             {{ $post->content }}
         </p>
 
-        <a href="/posts/{{ $post->id }}/edit">Editar</a>
+        <a href="{{ route('posts.edit', $post->id) }}">Editar</a>
 
-        <form action="/posts/{{ $post->id }}" method="POST">
+        <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
             @csrf
             @method('DELETE')
 

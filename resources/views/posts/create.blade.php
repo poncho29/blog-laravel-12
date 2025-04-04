@@ -6,7 +6,7 @@
     <div class="max-w-4xl mx-auto px-4">
         <h1 class="mb-4">Formulario para crear post</h1>
 
-        <form action="/posts" method="POST">
+        <form action="{{ route('posts.store') }}" method="POST">
             @csrf
 
             {{-- @if ($errors->any())
