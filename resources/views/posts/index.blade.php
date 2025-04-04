@@ -1,17 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Todos los posts</h1>
+    <main class="container mx-auto">
+        <h1 class="text-3xl">Todos los posts</h1>
 
-    <a href="/posts/create">Nuevo post</a>
+        <a href="/posts/create">Nuevo post</a>
 
-    <ul>
-        @foreach ($posts as $post)
-            <li>
-                <a href="/posts/{{ $post->id }}">
-                    {{ $post->title }}
-                </a>
-            </li>
-        @endforeach
-    </ul>
+        <ul>
+            @foreach ($posts as $post)
+                <li>
+                    <a href="/posts/{{ $post->id }}">
+                        {{ $post->title }}
+                    </a>
+                </li>
+            @endforeach
+
+            {{ $posts->links() }}
+        </ul>
+    </main>
 @endsection
