@@ -37,7 +37,7 @@
 
             <br><br>
 
-            {{-- <label for="slug">
+            <label for="slug">
                 Slug
                 <input
                     id="slug"
@@ -51,7 +51,7 @@
                 <div class="text-red-600">{{ $message }}</div>
             @enderror
 
-            <br> --}}
+            <br><br>
 
             <label for="category">
                 Categoría
@@ -87,7 +87,7 @@
 
             <button type="submit">Crear post</button>
             <button type="button">
-                <a href="/posts">Volver</a>
+                <a href={{ route('posts.index') }}>Volver</a>
             </button>
         </form>
     </div>

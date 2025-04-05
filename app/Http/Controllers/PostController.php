@@ -25,15 +25,18 @@ class PostController extends Controller
     }
 
     public function store (Request $request) {
-        $post = new Post();
+        // $post = new Post();
 
-        $post->title = $request->title;
-        $post->category = $request->category;
-        $post->content = $request->content;
+        // $post->title = $request->title;
+        // $post->slug = $request->slug;
+        // $post->category = $request->category;
+        // $post->content = $request->content;
 
-        $post->save();
+        // $post->save();
 
-        return redirect('/posts');
+        Post::create($request->all());
+
+        return redirect()->route('posts.index');
     }
 
     public function show ($id) {
@@ -55,13 +58,16 @@ class PostController extends Controller
     public function update (Request $request, $id) {
         $post = Post::find($id);
 
-        $post->title = $request->title;
-        $post->category = $request->category;
-        $post->content = $request->content;
+        $post->update($request->all());
 
-        $post->save();
+        // $post->title = $request->title;
+        // $post->slug = $request->slug;
+        // $post->category = $request->category;
+        // $post->content = $request->content;
 
-        return redirect("/posts/{$post->id}");
+        // $post->save();
+
+        return redirect()->route('posts.show', $post->id);
     }
 
     public function destroy ($id) {
@@ -69,6 +75,6 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect('/posts');
+        return redirect()->route('posts.index');
     }
 }

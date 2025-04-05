@@ -12,6 +12,12 @@ class Post extends Model
 
     protected $table = 'posts';
 
+    // Definimos los campos que queremos aceptar para insercion masiva
+    protected $fillable = ['title', 'slug', 'category', 'content'];
+
+    // Excluye los campos que no queremos aceptar para insercion masiva
+    // protected $guarded = ['is_active'];
+
     // Eloquent obtiene todo los campos como strings
     // en esta funcion se transforman a al tipo necesario
     protected function casts(): array
@@ -31,5 +37,10 @@ class Post extends Model
                 return ucfirst($value);
             }
         );
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }
