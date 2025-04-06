@@ -28,7 +28,7 @@
                     id="title"
                     type="text"
                     name="title"
-                    value="{{ $post->title }}"
+                    value="{{ old('title', $post->title) }}"
                 >
             </label>
 
@@ -44,7 +44,7 @@
                     id="slug"
                     type="text"
                     name="slug"
-                    value="{{ $post->slug }}"
+                    value="{{ old('slug', $post->slug) }}"
                 >
             </label>
 
@@ -60,7 +60,7 @@
                     id="category"
                     type="text"
                     name="category"
-                    value="{{ $post->category }}"
+                    value="{{ old('category', $post->category) }}"
                 >
             </label>
 
@@ -76,7 +76,7 @@
                     id="content"
                     name="content"
                 >
-                    {{ $post->content }}
+                    {{ old('content', $post->content) }}
                 </textarea>
             </label>
 
