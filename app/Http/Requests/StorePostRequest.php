@@ -30,20 +30,20 @@ class StorePostRequest extends FormRequest
     }
 
     // Metodo para personalizar los mensajes de error
-    public function messages()
-    {
-        return [
-            'title.required' => 'The :attribute field is required. (edited)',
-            'slug.required' => 'The :attribute field is required. (edited)',
-        ];
-    }
+    // public function messages()
+    // {
+    //     return [
+    //         'title.required' => 'The :attribute field is required. (edited)',
+    //         'slug.required' => 'The :attribute field is required. (edited)',
+    //     ];
+    // }
 
     // Cambiar los nombre de los campos en el mensaje de error
-    public function attributes()
-    {
-        return [
-            'title' => 'Título',
-            'slug' => 'Slug',
-        ];
-    }
+    // public function attributes()
+    // {
+    //     return [
+    //         'title' => 'Título',
+    //         'slug' => 'Slug',
+    //     ];
+    // }
 }
