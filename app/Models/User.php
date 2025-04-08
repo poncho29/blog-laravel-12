@@ -45,4 +45,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function phone()
+    {
+        // Si se siguen la convenciones por defecto eloquent busca el
+        // campo id y supone que la llave foranea es el nombre del modelo
+        // separado por un _ mas id.
+        return $this->hasOne(Phone::class);
+
+        // En caso de no seguir convenciones se pasa como
+        // parametros la llave foranea y la llave primaria
+        // return $this->hasOne(Phone::class, 'user_id', 'id');
+    }
 }
