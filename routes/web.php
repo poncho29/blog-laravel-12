@@ -22,7 +22,7 @@ Route::resource('posts', PostController::class)
 // Route::put('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
 // Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
 
-Route::get('/prueba', function () {
+Route::get('/relation-one-to-one', function () {
     // User::create([
     //     'name' => 'Prueba',
     //     'email' => 'prueba@prueba',
@@ -35,11 +35,9 @@ Route::get('/prueba', function () {
     // ]);
 
     // $user = User::where('id', 1)->with('phone')->first();
-
     // return $user;
 
     $phone = Phone::find(1);
-
     return $phone->user;
 });
 
@@ -68,4 +66,24 @@ Route::get('/relation-one-to-many', function () {
     $comment = Comment::find(1);
 
     return $comment->post;
+});
+
+Route::get('/relation-many-to-many', function () {
+    // Obtener post y añadirle tags
+    $post = Post::find(111);
+    // $post->tags()->attach([1, 2]);
+    // return 'tags añadidos';
+
+    // Quitar tag de un post
+    // $post->tags()->detach([1]);
+    // return 'tag quitado';
+
+    // Agregar mas etiquetas a un post sin que duplique
+    // si una etiquete ya esta agregada al post
+    $post->tags()->sync([1, 2, 3]);
+    return $post->tags;
+
+    // Obtener tags del post
+    // $post->tags;
+    // return $post->tags;
 });

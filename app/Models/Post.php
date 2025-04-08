@@ -44,8 +44,20 @@ class Post extends Model
         return 'slug';
     }
 
+    // Relacion uno a muchos
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    // Relacion muchos a muchos
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+
+        // Si no se sigue la convencion de poner los nombres
+        // de las tablas alfabeticamente se pasa como segundo
+        // paramtero el nombre de la tabla intermedia.
+        // return $this->belongsToMany(Tag::class, 'tabla_intermedia', 'key1', 'key2');
     }
 }
