@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Models\Comment;
 use App\Models\Phone;
+use App\Models\Post;
 use App\Models\User;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -39,4 +41,31 @@ Route::get('/prueba', function () {
     $phone = Phone::find(1);
 
     return $phone->user;
+});
+
+Route::get('/relation-one-to-many', function () {
+    // Post::create([
+    //     'title' => 'Post 2',
+    //     'slug' => 'post-2',
+    //     'category' => 'Categoria 2',
+    //     'content' => 'Contenido 2'
+    // ]);
+
+    // Comment::create([
+    //     'content' => 'Comentario 5',
+    //     'post_id' => 111
+    // ]);
+
+    // return 'Comentario creado';
+
+    // Obtener post
+    // $post = Post::find(111);
+
+    // Obtener comentarios del posts
+    // return $post->comments;
+
+    // Relacion inversa
+    $comment = Comment::find(1);
+
+    return $comment->post;
 });
